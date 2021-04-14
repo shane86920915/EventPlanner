@@ -19,8 +19,8 @@ namespace EventPlanner.Data
         [Required]
         [Display(Name = "Last Name")]
         public string Lastname { get; set; }
-        [MaxLength(1, ErrorMessage = "No more than one character is allowed in this field.")]
-        public byte? MiddleInitial { get; set; }
+       
+        public char? MiddleInitial { get; set; }
 
         [ForeignKey(nameof(Event))]
         public int EventId { get; set; }

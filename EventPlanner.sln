@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPlanner.Data", "EventPlanner.Data\EventPlanner.Data.csproj", "{CB9930AF-095F-4E50-A821-76CD22100803}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{367149BF-6B98-418D-87E6-51FE6DE65692}"
+	ProjectSection(SolutionItems) = preProject
+		EventPlanner\Models\IdentityModels.cs = EventPlanner\Models\IdentityModels.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

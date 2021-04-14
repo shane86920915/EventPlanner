@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using EventPlanner.Models;
+using EventPlanner.Data;
 
 namespace EventPlanner
 {
