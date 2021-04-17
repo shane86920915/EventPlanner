@@ -1,17 +1,17 @@
-﻿using System;
+﻿using EventPlanner.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventPlanner.Data
+namespace EventPlanner.Models
 {
-    public class Sponsor 
+    public class SponsorDetails
     {
         [Key]
-        [Display(Name ="Sponsor ID")]
+        [Display(Name = "Sponsor ID")]
         public int SponsorId { get; set; }
 
         [Display(Name = "Corporate Sponsor")]
@@ -27,15 +27,10 @@ namespace EventPlanner.Data
 
         [Required]
         public string State { get; set; }
-
-        [Display(Name = "Created")]
+        public virtual List<Event> EventId  { get; set; }
+        public virtual List<Event> EventTitle { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
-
-        public virtual ICollection<EventSponsor> Events { get; set; }
-
+        public DateTimeOffset ModifiedUtc { get; set; }
 
     }
 }

@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EventPlanner.Data
 {
-    public class Sponsor 
+     public class Person
     {
-        [Key]
-        [Display(Name ="Sponsor ID")]
-        public int SponsorId { get; set; }
-
-        [Display(Name = "Corporate Sponsor")]
         [Required]
-        [Range(2, 70, ErrorMessage = "Enter at least 2 caracters and no more than 70.")]
-        public string SponsorsName { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+      
+        public string Lastname { get; set; }
+
+        public char? MiddleInitial { get; set; }
 
         [Required]
         public string Address { get; set; }
@@ -33,9 +34,6 @@ namespace EventPlanner.Data
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-
-        public virtual ICollection<EventSponsor> Events { get; set; }
-
 
     }
 }

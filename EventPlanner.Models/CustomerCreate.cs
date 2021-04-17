@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventPlanner.Data
+namespace EventPlanner.Models
 {
-    public class Customer 
+    public class CustomerCreate
     {
-        [Key]
-        [Display(Name ="Customer ID")]
-        public int CustomerId { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -33,18 +30,9 @@ namespace EventPlanner.Data
         [Required]
         public string State { get; set; }
 
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        
+    
 
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
-
-
-        public virtual ICollection<CustomerEvent> Events { get; set; } 
-
-
-
-
-
+       
     }
 }

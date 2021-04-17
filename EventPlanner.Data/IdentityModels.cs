@@ -36,7 +36,7 @@ namespace EventPlanner.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
+        
 
 
 
