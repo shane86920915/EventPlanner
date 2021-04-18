@@ -9,6 +9,9 @@ namespace EventPlanner.Data
 {
     public class Customer 
     {
+        [Required]
+        public Guid OwnerId { get; set; }
+
         [Key]
         [Display(Name ="Customer ID")]
         public int CustomerId { get; set; }

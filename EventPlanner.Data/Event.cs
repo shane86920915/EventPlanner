@@ -10,6 +10,9 @@ namespace EventPlanner.Data
 {
     public class Event
     {
+        [Required]
+        public Guid OwnerId { get; set; }
+
         [Key]
         [Display(Name ="Event ID")]
         public int EventId { get; set; }

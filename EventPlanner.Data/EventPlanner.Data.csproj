@@ -70,8 +70,11 @@
     <Compile Include="Migrations\202104172102007_AddedPriceToEvent.Designer.cs">
       <DependentUpon>202104172102007_AddedPriceToEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104172332007_Testing.cs" />
+    <Compile Include="Migrations\202104172332007_Testing.Designer.cs">
+      <DependentUpon>202104172332007_Testing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Person.cs" />
     <Compile Include="Sponsor.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Event.cs" />
@@ -91,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104172102007_AddedPriceToEvent.resx">
       <DependentUpon>202104172102007_AddedPriceToEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104172332007_Testing.resx">
+      <DependentUpon>202104172332007_Testing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

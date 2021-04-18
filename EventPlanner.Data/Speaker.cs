@@ -10,6 +10,9 @@ namespace EventPlanner.Data
 {
     public class Speaker 
     {
+        [Required]
+        public Guid OwnerId { get; set; }
+
         [Key]
         [Display(Name ="Motivational Speaker ID")]
         public int SpeakerId { get; set; }

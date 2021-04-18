@@ -10,6 +10,9 @@ namespace EventPlanner.Data
 {
     public class Sponsor 
     {
+        [Required]
+        public Guid OwnerId { get; set; }
+
         [Key]
         [Display(Name ="Sponsor ID")]
         public int SponsorId { get; set; }

@@ -9,7 +9,7 @@ namespace EventPlanner.Models
 {
     public class CustomerCreate
     {
-
+       
         [Required]
         [Display(Name = "First Name")]
         public string CustomerFName { get; set; }
