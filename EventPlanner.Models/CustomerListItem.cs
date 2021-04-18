@@ -23,8 +23,9 @@ namespace EventPlanner.Models
         [Display(Name = "Last Name")]
 
         public string CustomerLName { get; set; }
-        [Display(Name ="Middle Initial")]
-        public char? CustomerMInitial { get; set; }
+        [MaxLength(1, ErrorMessage = "Only one character allowed")]
+        [Display(Name = "Middel Initial")]
+        public string CustomerMInitial { get; set; }
 
         [Required]
         public string Address { get; set; }

@@ -265,6 +265,10 @@
       <Project>{86ff2796-c64b-4a46-a1ad-26c9beccb1d5}</Project>
       <Name>EventPlanner.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EventPlanner.Services\EventPlanner.Services.csproj">
+      <Project>{3E659ACD-DFA3-45B0-AA7E-77A389E1B96F}</Project>
+      <Name>EventPlanner.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

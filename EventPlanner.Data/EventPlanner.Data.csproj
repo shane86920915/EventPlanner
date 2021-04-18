@@ -74,6 +74,14 @@
     <Compile Include="Migrations\202104172332007_Testing.Designer.cs">
       <DependentUpon>202104172332007_Testing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104180221350_Testing1.cs" />
+    <Compile Include="Migrations\202104180221350_Testing1.Designer.cs">
+      <DependentUpon>202104180221350_Testing1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104180241000_ChangedMiddleInitialToString.cs" />
+    <Compile Include="Migrations\202104180241000_ChangedMiddleInitialToString.Designer.cs">
+      <DependentUpon>202104180241000_ChangedMiddleInitialToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Sponsor.cs" />
     <Compile Include="Customer.cs" />
@@ -97,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104172332007_Testing.resx">
       <DependentUpon>202104172332007_Testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104180221350_Testing1.resx">
+      <DependentUpon>202104180221350_Testing1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104180241000_ChangedMiddleInitialToString.resx">
+      <DependentUpon>202104180241000_ChangedMiddleInitialToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
