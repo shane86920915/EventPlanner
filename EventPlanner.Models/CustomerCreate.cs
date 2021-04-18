@@ -18,7 +18,7 @@ namespace EventPlanner.Models
         [Display(Name = "Last Name")]
 
         public string CustomerLName { get; set; }
-
+        [Display(Name ="Middle Initial")]
         public char? CustomerMInitial { get; set; }
 
         [Required]

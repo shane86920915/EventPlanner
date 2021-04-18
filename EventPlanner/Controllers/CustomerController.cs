@@ -18,5 +18,23 @@ namespace EventPlanner.Controllers
             var model = new CustomerListItem[0];
             return View(model);
         }
+
+        // GET: Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Create(CustomerCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }
