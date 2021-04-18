@@ -10,12 +10,12 @@ namespace EventPlanner.Models
 {
      public class CustomerDetails
     {
-        
+        [Display(Name ="Customer ID")]
         public int CustomerId { get; set; }
-    
+        [Display(Name ="First Name")]
         public string CustomerFName { get; set; }
 
-       
+         [Display(Name ="Last Name")]
         public string CustomerLName { get; set; }
 
         [MaxLength(1, ErrorMessage = "Only one character allowed")]
@@ -31,15 +31,16 @@ namespace EventPlanner.Models
       
         public string State { get; set; }
 
-      
+         [Display(Name ="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        
+        [Display(Name ="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
         public List<int> EventId { get; set; }
 
-        public List<string> EventTitle { get; set; }
+   
+        public virtual  EventListItem Event { get; set; }
 
 
 

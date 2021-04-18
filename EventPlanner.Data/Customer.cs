@@ -45,7 +45,7 @@ namespace EventPlanner.Data
         public DateTimeOffset? ModifiedUtc { get; set; }
 
 
-        public virtual ICollection<CustomerEvent> Events { get; set; } 
+        public virtual ICollection<CustomerEvent> Events { get; set; } = new List<CustomerEvent>();
 
 
 

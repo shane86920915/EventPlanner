@@ -10,6 +10,9 @@ namespace EventPlanner.Data
 {
     public class CustomerEvent
     {
+        [Required]
+        public Guid OwnerId { get; set; }
+
         [Key, Column(Order = 0)]
         [ForeignKey(nameof(Customer))]
         public int CustomerId { get; set; }

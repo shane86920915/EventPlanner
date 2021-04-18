@@ -45,6 +45,7 @@
     <Compile Include="CustomerCreate.cs" />
     <Compile Include="CustomerDetails.cs" />
     <Compile Include="CustomerEdit.cs" />
+    <Compile Include="CustomerEventCreate.cs" />
     <Compile Include="CustomerListItem.cs" />
     <Compile Include="EventCreate.cs" />
     <Compile Include="EventDetails.cs" />

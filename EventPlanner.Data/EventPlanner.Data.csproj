@@ -82,6 +82,10 @@
     <Compile Include="Migrations\202104180241000_ChangedMiddleInitialToString.Designer.cs">
       <DependentUpon>202104180241000_ChangedMiddleInitialToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104182210342_AddedCustomerEventToDb.cs" />
+    <Compile Include="Migrations\202104182210342_AddedCustomerEventToDb.Designer.cs">
+      <DependentUpon>202104182210342_AddedCustomerEventToDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Sponsor.cs" />
     <Compile Include="Customer.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104180241000_ChangedMiddleInitialToString.resx">
       <DependentUpon>202104180241000_ChangedMiddleInitialToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104182210342_AddedCustomerEventToDb.resx">
+      <DependentUpon>202104182210342_AddedCustomerEventToDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

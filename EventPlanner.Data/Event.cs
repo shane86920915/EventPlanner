@@ -39,9 +39,9 @@ namespace EventPlanner.Data
         [Required]
         [Display(Name ="Event Price")]
         public decimal Price { get; set; }
+        public virtual List<CustomerEvent> Customers { get; set; }
 
-
-        public virtual ICollection<CustomerEvent> Customers { get; set; } = new List<CustomerEvent>();
+        
 
         public virtual ICollection<EventSpeaker> Speakers { get; set; } = new List<EventSpeaker>();
 

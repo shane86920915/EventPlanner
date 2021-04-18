@@ -37,8 +37,6 @@ namespace EventPlanner.Controllers
 
             var service = CreateCustomerService();
 
-            //service.CreateCustomer(model);
-
             if (service.CreateCustomer(model))
             {
                 TempData["SaveResult"] = "Your Customer was successfully created.";
@@ -49,11 +47,17 @@ namespace EventPlanner.Controllers
 
             return View(model);
         }
+
+        //public ActionResult Details(int id)
+        //{
+        //    var svc = CreateCustomerService();
+        //    var model = svc.GetCustomerB
+        //}
         private CustomerService CreateCustomerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CustomerService(userId);
-            return service;
+           return service;
         }
     }
 }

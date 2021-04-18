@@ -33,6 +33,7 @@ namespace EventPlanner.Data
             return new ApplicationDbContext();
         }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerEvent> CustomerEvents { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }

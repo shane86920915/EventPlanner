@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerEventService.cs" />
     <Compile Include="CustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SponsorDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventPlanner.Data\EventPlanner.Data.csproj">
