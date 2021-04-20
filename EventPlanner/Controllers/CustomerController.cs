@@ -15,23 +15,28 @@ namespace EventPlanner.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CustomerService(userId);
+            var service = CreateCustomerService();
             var model = service.GetCustomers();
-            //var model = new CustomerListItem[0];
             return View(model);
         }
 
-        // GET: Create
+        //Get: Customer/Detail/{id}
+        public ActionResult Details(int id)
+        {
+            var service = CreateCustomerService();
+            var model = service.GetCustomerById(id);
+
+            return View(model);
+        }
+        // GET: Customer/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        //Post Customer/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        //Create Customer
         public ActionResult Create(CustomerCreate model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -49,19 +54,31 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
-        //Get Customer by Id
-        public ActionResult Details(int id)
+
+        //Get: Customer/Edit/{id}
+        public ActionResult Edit(int id)
         {
             var service = CreateCustomerService();
-            var model = service.GetCustomerById(id);
+            var detail = service.GetCustomerById(id);
+            var model
+                = new CustomerEdit
+                {
+                    CustomerId = detail.CustomerId,
+                    CustomerFName = detail.CustomerFName,
+                    CustomerLName = detail.CustomerLName,
+                    CustomerMInitial = detail.CustomerMInitial,
+                    Address = detail.Address,
+                    City = detail.City,
+                    State = detail.State
 
+                };
             return View(model);
         }
+
         private CustomerService CreateCustomerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CustomerService(userId);
-           return service;
+            return new CustomerService(userId);
         }
     }
 }
