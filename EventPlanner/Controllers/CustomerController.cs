@@ -31,6 +31,7 @@ namespace EventPlanner.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
+        //Create Customer
         public ActionResult Create(CustomerCreate model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -48,9 +49,13 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
+        //Get Customer by Id
         public ActionResult Details(int id)
         {
-            return View();
+            var service = CreateCustomerService();
+            var model = service.GetCustomerById(id);
+
+            return View(model);
         }
         private CustomerService CreateCustomerService()
         {

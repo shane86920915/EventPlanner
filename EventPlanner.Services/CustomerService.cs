@@ -100,10 +100,46 @@ namespace EventPlanner.Services
 
                 }
                 return Details;
-
-
-
             }
         }
+
+        public bool EditCustomer(CustomerEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Customers
+                    .Single(e => e.CustomerId == model.CustomerId && e.OwnerId == _userId);
+                var update = new CustomerEdit
+                {
+                    CustomerId = entity.CustomerId,
+                    CustomerFName = entity.CustomerFName,
+                    CustomerLName = entity.CustomerLName,
+                    CustomerMInitial = entity.CustomerMInitial,
+                    Address = entity.Address,
+                    City = entity.City,
+                    State = entity.State
+
+                };
+                return ctx.SaveChanges() == 1;
+                    
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Customers
+                    .Single(e => e.CustomerId == id && e.OwnerId == _userId);
+                ctx.Customers.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
