@@ -65,30 +65,45 @@ namespace EventPlanner.Services
             }
         }
 
-        //public CustomerDetails GetCustomerById(int id)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity
-        //            = ctx
-        //            .Customers
-        //            .Single(e => e.CustomerId == id && _userId == e.OwnerId);
+        public CustomerDetails GetCustomerById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Customers
+                    .Single(e => e.CustomerId == id && _userId == e.OwnerId);
 
-        //        return new CustomerDetails
-        //        {
-        //            CustomerId = entity.CustomerId,
-        //            CustomerFName = entity.CustomerFName,
-        //            CustomerLName = entity.CustomerLName,
-        //            CustomerMInitial = entity.CustomerMInitial,
-        //            City = entity.City,
-        //            Address = entity.Address,
-        //            State = entity.State,
-        //            CreatedUtc = entity.CreatedUtc,
-        //            ModifiedUtc = entity.ModifiedUtc,
-        //            Event = new EventListItem() { EventId = entity.e}
-        //        }
+                var Details = new CustomerDetails
+                {
+                    CustomerId = entity.CustomerId,
+                    CustomerFName = entity.CustomerFName,
+                    CustomerLName = entity.CustomerLName,
+                    CustomerMInitial = entity.CustomerMInitial,
+                    City = entity.City,
+                    Address = entity.Address,
+                    State = entity.State,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModifiedUtc,
 
-            
-        
+                    Event = new List<EventListItem>()
+                };
+                foreach (var customerEvent in entity.Events )
+                {
+                    var eventList = new EventListItem()
+                    {
+                        EventId = customerEvent.EventId,
+                        EventTitle = customerEvent.Event.EventTitle
+
+                    };
+                    Details.Event.Add(eventList);
+
+                }
+                return Details;
+
+
+
+            }
+        }
     }
 }

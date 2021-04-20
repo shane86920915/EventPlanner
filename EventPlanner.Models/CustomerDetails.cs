@@ -40,7 +40,7 @@ namespace EventPlanner.Models
         public List<int> EventId { get; set; }
 
    
-        public virtual  EventListItem Event { get; set; }
+        public List<EventListItem> Event { get; set; }
 
 
 

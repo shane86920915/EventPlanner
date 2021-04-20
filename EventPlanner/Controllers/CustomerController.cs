@@ -48,11 +48,10 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
-        //public ActionResult Details(int id)
-        //{
-        //    var svc = CreateCustomerService();
-        //    var model = svc.GetCustomerB
-        //}
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
         private CustomerService CreateCustomerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
