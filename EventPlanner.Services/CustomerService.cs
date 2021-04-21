@@ -126,7 +126,7 @@ namespace EventPlanner.Services
             }
         }
 
-        public bool Delete(int id)
+        public bool DeleteCustomer(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

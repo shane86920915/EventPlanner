@@ -82,7 +82,7 @@ namespace EventPlanner.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if(model.CustomerId != id)
+            if (model.CustomerId != id)
             {
                 ModelState.AddModelError("", "id Mismatch");
                 return View(model);
@@ -99,11 +99,37 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
-        //Get: Delete/Customer
+        //Get: Delete/Customer/{id}
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateCustomerService();
+            var model = service.GetCustomerById(id);
+
+            return View(model);
+        }
+
+        //Get: Post Delete/Customer/{id}
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCustomerService();
+
+            service.DeleteCustomer(id);
+            
+            TempData["SaveResult"] = "The customer was successfully deleted.";
+
+            return RedirectToAction("index");
+          
+        }
+
         private CustomerService CreateCustomerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             return new CustomerService(userId);
+
         }
     }
 }
