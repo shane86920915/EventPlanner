@@ -111,18 +111,17 @@ namespace EventPlanner.Services
                     = ctx
                     .Customers
                     .Single(e => e.CustomerId == model.CustomerId && e.OwnerId == _userId);
-                var update = new CustomerEdit
-                {
-                    CustomerId = entity.CustomerId,
-                    CustomerFName = entity.CustomerFName,
-                    CustomerLName = entity.CustomerLName,
-                    CustomerMInitial = entity.CustomerMInitial,
-                    Address = entity.Address,
-                    City = entity.City,
-                    State = entity.State
 
-                };
-                return ctx.SaveChanges() == 1;
+                entity.CustomerId = model.CustomerId;
+                entity.CustomerFName = model.CustomerFName;
+                entity.CustomerLName = model.CustomerLName;
+                entity.CustomerMInitial = model.CustomerMInitial;
+                entity.Address = model.Address;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                  return ctx.SaveChanges() == 1;
+                
                     
             }
         }

@@ -75,6 +75,31 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
+        //Get: post Customer/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CustomerEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.CustomerId != id)
+            {
+                ModelState.AddModelError("", "id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateCustomerService();
+
+            if (service.EditCustomer(model))
+            {
+                TempData["SaveResult"] = "The customer was successfully updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "The customer could not be updated.");
+            return View(model);
+        }
+
+        //Get: Delete/Customer
         private CustomerService CreateCustomerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
