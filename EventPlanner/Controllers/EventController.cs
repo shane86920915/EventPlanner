@@ -1,4 +1,5 @@
-﻿using EventPlanner.Services;
+﻿using EventPlanner.Models;
+using EventPlanner.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,36 @@ namespace EventPlanner.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            var service = CreateEventServices();
+            var service = CreateEventService();
             var model = service.GetEvent();
             return View(model);
         }
 
-        public EventService CreateEventServices()
+        //Get: Create/Customer
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(EventCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateEventService();
+
+            if (service.CreateEvent(model))
+            {
+                TempData["SaveResult"] = "Event was successfully created.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("","Event could not be created.");
+
+            return View(model);
+        }
+
+        //Post: Create/Customer
+        public EventService CreateEventService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             return new EventService(userId);

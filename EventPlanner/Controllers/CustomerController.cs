@@ -45,7 +45,7 @@ namespace EventPlanner.Controllers
 
             if (service.CreateCustomer(model))
             {
-                TempData["SaveResult"] = "Your Customer was successfully created.";
+                TempData["SaveResult"] = "Customer was successfully created.";
                 return RedirectToAction("Index");
             }
 

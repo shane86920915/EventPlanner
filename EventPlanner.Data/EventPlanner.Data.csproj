@@ -86,6 +86,10 @@
     <Compile Include="Migrations\202104182210342_AddedCustomerEventToDb.Designer.cs">
       <DependentUpon>202104182210342_AddedCustomerEventToDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.cs" />
+    <Compile Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.Designer.cs">
+      <DependentUpon>202104222236527_ChangedDataAnnotationForEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Sponsor.cs" />
     <Compile Include="Customer.cs" />
@@ -118,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104182210342_AddedCustomerEventToDb.resx">
       <DependentUpon>202104182210342_AddedCustomerEventToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.resx">
+      <DependentUpon>202104222236527_ChangedDataAnnotationForEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
