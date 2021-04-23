@@ -19,7 +19,17 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
-        //Get: Create/Customer
+        //Get: Event/Detail/{id}
+        public ActionResult Detail(int id)
+        {
+            var service = CreateEventService();
+            var model = service.GetEventById(id);
+            return View(model);
+
+
+        }
+
+        //Get: Create/Event
         public ActionResult Create()
         {
             return View();
@@ -42,12 +52,14 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
-        //Post: Create/Customer
+        //Post: Create/Event
         public EventService CreateEventService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             return new EventService(userId);
         }
+
+        //Get: 
 
     }
 }

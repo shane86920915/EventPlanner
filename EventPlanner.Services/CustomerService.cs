@@ -88,13 +88,12 @@ namespace EventPlanner.Services
 
                     Event = new List<EventListItem>()
                 };
-                foreach (var customerEvent in entity.Events )
+                foreach (var item in entity.Events )
                 {
                     var eventList = new EventListItem()
                     {
-                        EventId = customerEvent.EventId,
-                        EventTitle = customerEvent.Event.EventTitle
-
+                        EventId = item.EventId,
+                        EventTitle = item.Event.EventTitle
                     };
                     Details.Event.Add(eventList);
 

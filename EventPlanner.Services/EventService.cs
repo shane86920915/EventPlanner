@@ -56,9 +56,46 @@ namespace EventPlanner.Services
                             State = e.State,
                             CreatedUtc = DateTimeOffset.Now
 
-                         
-                        }) ;
+
+                        });
                 return Query.ToArray();
+            }
+
+        }
+        public EventDetails GetEventById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Events
+                    .Single(e => e.EventId == id && e.OwnerId == _userId);
+                var details = new EventDetails()
+                {
+                    EventId = entity.EventId,
+                    EventTitle = entity.EventTitle,
+                    Price = entity.Price,
+                    Address = entity.Address,
+                    City = entity.City,
+                    State = entity.State,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModifiedUtc,
+
+                    Customer = new List<CustomerListItem>()
+                };
+                foreach (var item in entity.Customers)
+                {
+                    var CustList = new CustomerListItem()
+                    {
+                        CustomerId = item.Customer.CustomerId,
+                        CustomerFName = item.Customer.CustomerFName,
+                        CustomerLName = item.Customer.CustomerLName,
+                        CustomerMInitial = item.Customer.CustomerMInitial
+                    };
+                    details.Customer.Add(CustList);
+                }
+                return details;
+
             }
 
         }
