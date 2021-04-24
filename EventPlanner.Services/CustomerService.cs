@@ -10,7 +10,7 @@ namespace EventPlanner.Services
 {
     public class CustomerService
     {
-        public readonly Guid _userId;
+        private readonly Guid _userId;
 
         public CustomerService(Guid userId)
         {
@@ -72,7 +72,7 @@ namespace EventPlanner.Services
                 var entity
                     = ctx
                     .Customers
-                    .Single(e => e.CustomerId == id && _userId == e.OwnerId);
+                    .Single(e => e.CustomerId == id && e.OwnerId == _userId);
 
                 var Details = new CustomerDetails
                 {

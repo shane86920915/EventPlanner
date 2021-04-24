@@ -121,7 +121,7 @@ namespace EventPlanner.Controllers
             
             TempData["SaveResult"] = "The customer was successfully deleted.";
 
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
           
         }
 

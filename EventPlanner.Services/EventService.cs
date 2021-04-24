@@ -120,5 +120,19 @@ namespace EventPlanner.Services
                     return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteEvent(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Events
+                    .Single(e => e.EventId == id && e.OwnerId == _userId);
+                ctx.Events.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

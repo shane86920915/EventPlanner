@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace EventPlanner.Controllers
 {
+    [Authorize]
     public class EventController : Controller
     {
         // GET: Event
@@ -20,7 +21,7 @@ namespace EventPlanner.Controllers
         }
 
         //Get: Event/Detail/{id}
-        public ActionResult Detail(int id)
+        public ActionResult Details(int id)
         {
             var service = CreateEventService();
             var model = service.GetEventById(id);
@@ -95,13 +96,37 @@ namespace EventPlanner.Controllers
 
           
         }
+
+        //Get: Delete/Event/Id
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateEventService();
+
+            var model = service.GetEventById(id);
+
+            return View(model);
+        }
+
+        //Post: Delete/Event/Id
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateEventService();
+
+            service.DeleteEvent(id);
+            
+            TempData["SaveResult"] = "The event was successfully deleted";
+
+            return RedirectToAction("Index");
+        }
+
         public EventService CreateEventService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             return new EventService(userId);
         }
-
-        //Get: 
-
     }
 }
