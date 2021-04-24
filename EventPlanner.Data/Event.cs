@@ -17,22 +17,17 @@ namespace EventPlanner.Data
         [Display(Name ="Event ID")]
         public int EventId { get; set; }
 
-
-
         [Required]
         [Display(Name = "Event Title")]
         [MaxLength(70, ErrorMessage = "No more than 70 characters allowed.")]
         [MinLength(2, ErrorMessage ="Enter at least 2 characters.")]
         public string EventTitle { get; set; }
 
-
         [Required]
         public string Address { get; set; }
 
-
         [Required]
         public string City  { get; set; }
-
 
         [Required]
         public string State { get; set; }

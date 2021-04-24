@@ -12,9 +12,12 @@ namespace EventPlanner.Models
         public int EventId { get; set; }
 
         [Required]
-        [Range(2, 70, ErrorMessage = "Enter at least 2 caracters and no more than 70.")]
+        [MaxLength(70, ErrorMessage = "No more than 70 characters allowed" )]
+        [MinLength(2, ErrorMessage ="Enter at least 2 characters")]
         public string EventTitle { get; set; }
 
+        [Required]
+        [Display(Name = "Event Price")]
         public decimal Price { get; set; }
 
         [Required]

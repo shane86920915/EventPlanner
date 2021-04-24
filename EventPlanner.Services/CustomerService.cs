@@ -119,12 +119,11 @@ namespace EventPlanner.Services
                 entity.City = model.City;
                 entity.State = model.State;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
-                  return ctx.SaveChanges() == 1;
-                
+
+                return ctx.SaveChanges() == 1;
                     
             }
         }
-
         public bool DeleteCustomer(int id)
         {
             using (var ctx = new ApplicationDbContext())

@@ -99,5 +99,26 @@ namespace EventPlanner.Services
             }
 
         }
+
+        public bool EditEvent(EventEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity
+                     = ctx
+                     .Events
+                     .Single(e => e.EventId == model.EventId && e.OwnerId == _userId);
+                
+                    entity.EventId = model.EventId;
+                    entity.EventTitle = model.EventTitle;
+                    entity.Address = model.Address;
+                    entity.City = model.City;
+                    entity.State = model.State;
+                    entity.Price = model.Price;
+                    entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                
+                    return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
