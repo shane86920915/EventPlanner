@@ -92,7 +92,30 @@ namespace EventPlanner.Controllers
             return View(model);
 
         }
+        //Get: Speaker/Delete/{id}
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateSpeakerService();
+            var model = service.GetSpeakerById(id);
 
+            return View(model);
+        }
+
+        //Get: Speaker/Delete/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateSpeakerService();
+
+            service.DeleteSpeaker(id);
+
+            TempData["SaveResult"] = "Speaker was succesfully deleted";
+
+            return RedirectToAction("Index");
+        }
         public SpeakerService CreateSpeakerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

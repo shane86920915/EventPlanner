@@ -54,9 +54,7 @@ namespace EventPlanner.Services
                             Address = e.Address,
                             City = e.City,
                             State = e.State,
-                            CreatedUtc = DateTimeOffset.Now
-
-
+                            CreatedUtc = e.CreatedUtc
                         });
                 return Query.ToArray();
             }
@@ -115,7 +113,7 @@ namespace EventPlanner.Services
                     entity.City = model.City;
                     entity.State = model.State;
                     entity.Price = model.Price;
-                    entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                    entity.ModifiedUtc = DateTimeOffset.Now;
                 
                     return ctx.SaveChanges() == 1;
             }

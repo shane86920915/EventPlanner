@@ -118,7 +118,7 @@ namespace EventPlanner.Services
                 entity.Address = model.Address;
                 entity.City = model.City;
                 entity.State = model.State;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.ModifiedUtc = DateTimeOffset.Now;
 
                 return ctx.SaveChanges() == 1;
                     

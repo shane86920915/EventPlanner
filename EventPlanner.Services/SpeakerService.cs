@@ -105,6 +105,19 @@ namespace EventPlanner.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteSpeaker(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Speakers
+                    .Single(e => e.SpeakerId == id && e.OwnerId == _userid);
+                ctx.Speakers.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 
