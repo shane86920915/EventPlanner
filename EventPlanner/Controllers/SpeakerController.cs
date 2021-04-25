@@ -20,7 +20,7 @@ namespace EventPlanner.Controllers
         }
 
         //Get: Speaker/Details/{id}
-        public ActionResult GetDetails(int id)
+        public ActionResult Details(int id)
         {
             var service = CreateSpeakerService();
             var model = service.GetSpeakerById(id);
@@ -51,10 +51,53 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
+        //Get: Speaker/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = CreateSpeakerService();
+            var details = service.GetSpeakerById(id);
+            var model
+                = new SpeakerEdit
+                {
+                    SpeakerId = details.SpeakerId,
+                    SpeakerFName = details.SpeakerFName,
+                    SpeakerLName = details.SpeakerLName,
+                    State = details.State,
+                    Address = details.Address,
+                    City = details.City
+                };
+            return View(model);
+        }
+
+        // Post: Speaker/Edit/{id
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, SpeakerEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateSpeakerService();
+
+            if(model.SpeakerId != id)
+            {
+                ModelState.AddModelError("", "Id mismatch");
+            }
+
+            if (service.EditSpeaker(model))
+            {
+                TempData["SaveResult"] = "Speaker was successfully updated";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Speaker could not be updated");
+            return View(model);
+
+        }
+
         public SpeakerService CreateSpeakerService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             return new SpeakerService(userId);
         }
+
     }
 }

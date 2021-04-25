@@ -78,12 +78,33 @@ namespace EventPlanner.Services
                         SpeakerLName = entity.SpeakerLName,
                         Address = entity.Address,
                         City = entity.City,
+                        State = entity.State,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc,
                     };
                 return details;
             }
         }
+        public bool EditSpeaker(SpeakerEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity
+                    = ctx
+                    .Speakers
+                    .Single(e => e.SpeakerId == model.SpeakerId && e.OwnerId == _userid);
 
-        
+                entity.SpeakerId = model.SpeakerId;
+                entity.SpeakerFName = model.SpeakerFName;
+                entity.SpeakerLName = model.SpeakerLName;
+                entity.Address = model.Address;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.ModifiedUtc = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 
