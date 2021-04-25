@@ -1,4 +1,5 @@
-﻿using EventPlanner.Services;
+﻿using EventPlanner.Models;
+using EventPlanner.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,29 @@ namespace EventPlanner.Controllers
             return View(model);
         }
 
-        public ActionResult 
+        //Get: Create/Speaker
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //Post: Create/Speaker
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(SpeakerCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateSpeakerService();
+
+            if (service.CreateSpeaker(model))
+            {
+                TempData["SaveResult"] = "Speaker was successfully created";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Speaker could not be created");
+            return View(model);
+        }
 
         public SpeakerService CreateSpeakerService()
         {

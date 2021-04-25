@@ -251,6 +251,7 @@
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
     <Content Include="Views\Speaker\Index.cshtml" />
+    <Content Include="Views\Speaker\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
