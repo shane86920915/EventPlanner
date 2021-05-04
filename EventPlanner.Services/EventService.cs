@@ -78,25 +78,27 @@ namespace EventPlanner.Services
                     State = entity.State,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
-
-                    Customer = new List<CustomerListItem>()
+                    CustomerId = entity.Customers.Select(e => e.CustomerId).ToList(),
+                    CustomerFName = entity.Customers.Select(e => e.CustomerFName).ToList(),
+                    CustomerLName = entity.Customers.Select(e => e.CustomerLName).ToList()
                 };
-                foreach (var item in entity.Customers)
-                {
-                    var CustList = new CustomerListItem()
-                    {
-                        CustomerId = item.Customer.CustomerId,
-                        CustomerFName = item.Customer.CustomerFName,
-                        CustomerLName = item.Customer.CustomerLName,
-                        CustomerMInitial = item.Customer.CustomerMInitial
-                    };
-                    details.Customer.Add(CustList);
-                }
+
+                //Customer = new List<CustomerListItem>()
                 return details;
-
-            }
-
+            };
+            //foreach (var item in entity.Customers)
+            //{
+            //    var CustList = new CustomerListItem()
+            //    {
+            //        CustomerId = item.Customer.CustomerId,
+            //        CustomerFName = item.Customer.CustomerFName,
+            //        CustomerLName = item.Customer.CustomerLName,
+            //        CustomerMInitial = item.Customer.CustomerMInitial
+            //    };
+            //    details.Customer.Add(CustList);
         }
+
+
 
         public bool EditEvent(EventEdit model)
         {
@@ -106,22 +108,22 @@ namespace EventPlanner.Services
                      = ctx
                      .Events
                      .Single(e => e.EventId == model.EventId && e.OwnerId == _userId);
-                
-                    entity.EventId = model.EventId;
-                    entity.EventTitle = model.EventTitle;
-                    entity.Address = model.Address;
-                    entity.City = model.City;
-                    entity.State = model.State;
-                    entity.Price = model.Price;
-                    entity.ModifiedUtc = DateTimeOffset.Now;
-                
-                    return ctx.SaveChanges() == 1;
+
+                entity.EventId = model.EventId;
+                entity.EventTitle = model.EventTitle;
+                entity.Address = model.Address;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.Price = model.Price;
+                entity.ModifiedUtc = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
             }
         }
 
         public bool DeleteEvent(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity
                     = ctx
@@ -134,3 +136,5 @@ namespace EventPlanner.Services
         }
     }
 }
+
+

@@ -16,28 +16,33 @@ namespace EventPlanner.Services
         {
             _userId = userId;
         }
-
         public bool CreateCustomer(CustomerCreate model)
         {
-            var entity
-                = new Customer()
-                {
-                    OwnerId = _userId,
-                    CustomerFName = model.CustomerFName,
-                    CustomerLName = model.CustomerLName,
-                    CustomerMInitial = model.CustomerMInitial,
-                    Address = model.Address,
-                    City = model.City,
-                    State = model.State,
-                    CreatedUtc = DateTimeOffset.Now
 
-                };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Customers.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
+                var id = ctx.Events.SingleOrDefault(e => e.EventId == model.EventId);
+                if (id != null)
+                {
+                    var entity
+                        = new Customer()
+                        {
+                            OwnerId = _userId,
+                            CustomerFName = model.CustomerFName,
+                            CustomerLName = model.CustomerLName,
+                            CustomerMInitial = model.CustomerMInitial,
+                            Address = model.Address,
+                            City = model.City,
+                            State = model.State,
+                            EventId = model.EventId,
+                            CreatedUtc = DateTimeOffset.Now
 
+                        };
+                    ctx.Customers.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                }
+                return false;
+            }
         }
         public IEnumerable<CustomerListItem> GetCustomers()
         {
@@ -64,7 +69,6 @@ namespace EventPlanner.Services
                 return query.ToArray();
             }
         }
-
         public CustomerDetails GetCustomerById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -85,26 +89,27 @@ namespace EventPlanner.Services
                     State = entity.State,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
-
-                    Event = new List<EventListItem>()
+                    EventId = entity.EventId,
+                    EventTitle = entity.EventTitle
                 };
-                foreach (var item in entity.Events )
-                {
-                    var eventList = new EventListItem()
-                    {
-                        EventId = item.EventId,
-                        EventTitle = item.Event.EventTitle
-                    };
-                    Details.Event.Add(eventList);
+                //    Event = new List<EventListItem>()
+                //};
+                //foreach (var item in entity.Events )
+                //{
+                //    var eventList = new EventListItem()
+                //    {
+                //        EventId = item.EventId,
+                //        EventTitle = item.Event.EventTitle
+                //    };
+                //    Details.Event.Add(eventList);
 
-                }
+                //}
                 return Details;
             }
         }
-
         public bool EditCustomer(CustomerEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity
                     = ctx
@@ -121,7 +126,6 @@ namespace EventPlanner.Services
                 entity.ModifiedUtc = DateTimeOffset.Now;
 
                 return ctx.SaveChanges() == 1;
-                    
             }
         }
         public bool DeleteCustomer(int id)

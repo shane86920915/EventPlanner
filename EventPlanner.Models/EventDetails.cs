@@ -28,7 +28,10 @@ namespace EventPlanner.Models
         public string City { get; set; }
       
         public string State { get; set; }
-        public virtual List<CustomerListItem> Customer { get; set; }
+        public List<int> CustomerId { get; set; }
+        public List<string> CustomerFName { get; set; }
+        public List<string> CustomerLName { get; set; }
+        // public virtual List<CustomerListItem> Customer { get; set; }
         public virtual  List<int> SponsorId { get; set; }
         public virtual List<int> SpeakerId { get; set; }
 

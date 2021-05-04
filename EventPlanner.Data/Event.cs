@@ -35,7 +35,7 @@ namespace EventPlanner.Data
         [Required]
         [Display(Name ="Event Price")]
         public decimal Price { get; set; }
-        public virtual List<CustomerEvent> Customers { get; set; }
+        public virtual List<Customer> Customers { get; set; }
 
         
 

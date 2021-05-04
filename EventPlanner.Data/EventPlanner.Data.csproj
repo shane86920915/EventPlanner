@@ -90,6 +90,18 @@
     <Compile Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.Designer.cs">
       <DependentUpon>202104222236527_ChangedDataAnnotationForEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104270034216_AddedEventIdToCustomerTable.cs" />
+    <Compile Include="Migrations\202104270034216_AddedEventIdToCustomerTable.Designer.cs">
+      <DependentUpon>202104270034216_AddedEventIdToCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104270036306_Testing2.cs" />
+    <Compile Include="Migrations\202104270036306_Testing2.Designer.cs">
+      <DependentUpon>202104270036306_Testing2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104280011547_DeletedCustomerEventTable.cs" />
+    <Compile Include="Migrations\202104280011547_DeletedCustomerEventTable.Designer.cs">
+      <DependentUpon>202104280011547_DeletedCustomerEventTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Sponsor.cs" />
     <Compile Include="Customer.cs" />
@@ -125,6 +137,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.resx">
       <DependentUpon>202104222236527_ChangedDataAnnotationForEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104270034216_AddedEventIdToCustomerTable.resx">
+      <DependentUpon>202104270034216_AddedEventIdToCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104270036306_Testing2.resx">
+      <DependentUpon>202104270036306_Testing2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104280011547_DeletedCustomerEventTable.resx">
+      <DependentUpon>202104280011547_DeletedCustomerEventTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

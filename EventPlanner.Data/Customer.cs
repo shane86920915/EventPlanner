@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,12 +45,13 @@ namespace EventPlanner.Data
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
+        
+        [ForeignKey(nameof(Event))]
+        public virtual int EventId { get; set; }
+        public virtual string EventTitle { get; set; }
+        public virtual Event Event { get; set; }
 
-        public virtual ICollection<CustomerEvent> Events { get; set; } = new List<CustomerEvent>();
-
-
-
-
-
+        //[ForeignKey(nameof(Event))]
+        //public virtual Event Events { get; set; }
     }
 }

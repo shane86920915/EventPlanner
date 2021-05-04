@@ -22,9 +22,10 @@ namespace EventPlanner.Models
         public string City { get; set; }
 
         public string State { get; set; }
+        public virtual List<int> CustomerId { get; set; }
 
-        
 
-        
+
+
     }
 }

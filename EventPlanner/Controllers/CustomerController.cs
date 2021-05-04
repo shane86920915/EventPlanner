@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using EventPlanner.Services;
 
+
 namespace EventPlanner.Controllers
 {
     [Authorize]
@@ -39,9 +40,12 @@ namespace EventPlanner.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerCreate model)
         {
+            var test = new EventListItem();
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateCustomerService();
+
+
 
             if (service.CreateCustomer(model))
             {
@@ -49,11 +53,16 @@ namespace EventPlanner.Controllers
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Customer could not be created.");
+            ModelState.AddModelError("", "Customer cannot be created.");
+
+
+            if (model.EventId != test.EventId) 
+            {
+                ModelState.AddModelError("", "You must enter a valid event id.");
+            }
 
             return View(model);
         }
-
 
         //Get: Customer/Edit/{id}
         public ActionResult Edit(int id)
@@ -69,8 +78,7 @@ namespace EventPlanner.Controllers
                     CustomerMInitial = detail.CustomerMInitial,
                     Address = detail.Address,
                     City = detail.City,
-                    State = detail.State
-
+                    State = detail.State,
                 };
             return View(model);
         }
@@ -118,11 +126,11 @@ namespace EventPlanner.Controllers
             var service = CreateCustomerService();
 
             service.DeleteCustomer(id);
-            
+
             TempData["SaveResult"] = "The customer was successfully deleted.";
 
             return RedirectToAction("Index");
-          
+
         }
 
         private CustomerService CreateCustomerService()
