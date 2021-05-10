@@ -102,6 +102,10 @@
     <Compile Include="Migrations\202104280011547_DeletedCustomerEventTable.Designer.cs">
       <DependentUpon>202104280011547_DeletedCustomerEventTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105102243416_AddedTable.cs" />
+    <Compile Include="Migrations\202105102243416_AddedTable.Designer.cs">
+      <DependentUpon>202105102243416_AddedTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Sponsor.cs" />
     <Compile Include="Customer.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104280011547_DeletedCustomerEventTable.resx">
       <DependentUpon>202104280011547_DeletedCustomerEventTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105102243416_AddedTable.resx">
+      <DependentUpon>202105102243416_AddedTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

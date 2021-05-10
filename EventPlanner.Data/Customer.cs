@@ -45,12 +45,16 @@ namespace EventPlanner.Data
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        
-        [ForeignKey(nameof(Event))]
-        public virtual int EventId { get; set; }
-        public virtual string EventTitle { get; set; }
-        public virtual Event Event { get; set; }
+        public virtual ICollection<Event> Events { get; set; } = new HashSet<Event>();
 
+
+        //[ForeignKey(nameof(Event))]
+        //public virtual int EventId { get; set; }
+        //public virtual string EventTitle { get; set; }
+        //public virtual Event Event { get; set; }
+
+       
+    
         //[ForeignKey(nameof(Event))]
         //public virtual Event Events { get; set; }
     }

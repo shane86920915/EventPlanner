@@ -23,7 +23,7 @@ namespace EventPlanner
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }

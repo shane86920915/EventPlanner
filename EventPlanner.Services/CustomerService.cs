@@ -34,12 +34,14 @@ namespace EventPlanner.Services
                             Address = model.Address,
                             City = model.City,
                             State = model.State,
-                            EventId = model.EventId,
-                            CreatedUtc = DateTimeOffset.Now
+                            CreatedUtc = DateTimeOffset.Now,
 
                         };
+                    entity.Events.Add(id);
+
                     ctx.Customers.Add(entity);
-                    return ctx.SaveChanges() == 1;
+                   
+                    return ctx.SaveChanges() == 2;
                 }
                 return false;
             }
@@ -89,22 +91,21 @@ namespace EventPlanner.Services
                     State = entity.State,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
-                    EventId = entity.EventId,
-                    EventTitle = entity.EventTitle
+                 
+                
+                Events = new List<EventListItem>()
                 };
-                //    Event = new List<EventListItem>()
-                //};
-                //foreach (var item in entity.Events )
-                //{
-                //    var eventList = new EventListItem()
-                //    {
-                //        EventId = item.EventId,
-                //        EventTitle = item.Event.EventTitle
-                //    };
-                //    Details.Event.Add(eventList);
+            foreach (var item in entity.Events)
+            {
+                var eventList = new EventListItem()
+                {
+                    EventId = item.EventId,
+                    EventTitle = item.EventTitle
+                };
+                Details.Events.Add(eventList);
 
-                //}
-                return Details;
+            }
+            return Details;
             }
         }
         public bool EditCustomer(CustomerEdit model)

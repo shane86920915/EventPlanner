@@ -37,6 +37,8 @@ namespace EventPlanner.Models
         [Display(Name ="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
+        public  List<EventListItem> Events { get; set; }
+
         public int EventId { get; set; }
 
         public string EventTitle { get; set; }

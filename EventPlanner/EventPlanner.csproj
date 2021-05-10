@@ -182,6 +182,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\1707155-Les-Brown-Quote-Help-others-achieve-their-dreams-and-you-will.jpg" />
+    <Content Include="assets\maxresdefault.jpg" />
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
