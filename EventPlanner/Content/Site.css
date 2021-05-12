@@ -1,11 +1,11 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    color: black;
+    color: black!important;
 }
 
 .navbar-nav {
-    background-color:rebeccapurple !important;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,3 +24,103 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #ffffff !important;
+    border: 5px solid #1b4977 !important;
+}
+
+body {
+    font-family: 'Goudy Old Style';
+    font-size: 20px!important;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+.about{
+    color: black!important;
+    background-color:#ffffff!important;
+    border: 3px inset yellow;
+    width: 100%;
+    padding: 3em;
+
+}
+
+footer{
+    font-style:italic;
+}
+
+/*nav bar*/
+.navbar-inverse .navbar-nav > li > a {
+    /* color: #9d9d9d; */
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #0094ff!important;
+}
+
+@media (min-width: 768px) .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+a {
+    color: #337ab7!important;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+user agent stylesheet
+li {
+    text-align: -webkit-match-parent;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+
+
+
+
+
+

@@ -7,13 +7,13 @@ namespace EventPlanner.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedPriceToEvent : IMigrationMetadata
+    public sealed partial class intionalMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedPriceToEvent));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(intionalMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104172102007_AddedPriceToEvent"; }
+            get { return "202105111849270_intionalMigration"; }
         }
         
         string IMigrationMetadata.Source

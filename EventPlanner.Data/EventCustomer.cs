@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EventPlanner.Data
 {
-    public class CustomerEvent
+    public class EventCustomer
     {
       
   

@@ -55,56 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventSponsor.cs" />
-    <Compile Include="CustomerEvent.cs" />
+    <Compile Include="EventCustomer.cs" />
     <Compile Include="EventSpeaker.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202104140039515_InitialMigration.cs" />
-    <Compile Include="Migrations\202104140039515_InitialMigration.Designer.cs">
-      <DependentUpon>202104140039515_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104152318565_AddedCustomerEvent.cs" />
-    <Compile Include="Migrations\202104152318565_AddedCustomerEvent.Designer.cs">
-      <DependentUpon>202104152318565_AddedCustomerEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104172102007_AddedPriceToEvent.cs" />
-    <Compile Include="Migrations\202104172102007_AddedPriceToEvent.Designer.cs">
-      <DependentUpon>202104172102007_AddedPriceToEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104172332007_Testing.cs" />
-    <Compile Include="Migrations\202104172332007_Testing.Designer.cs">
-      <DependentUpon>202104172332007_Testing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104180221350_Testing1.cs" />
-    <Compile Include="Migrations\202104180221350_Testing1.Designer.cs">
-      <DependentUpon>202104180221350_Testing1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104180241000_ChangedMiddleInitialToString.cs" />
-    <Compile Include="Migrations\202104180241000_ChangedMiddleInitialToString.Designer.cs">
-      <DependentUpon>202104180241000_ChangedMiddleInitialToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104182210342_AddedCustomerEventToDb.cs" />
-    <Compile Include="Migrations\202104182210342_AddedCustomerEventToDb.Designer.cs">
-      <DependentUpon>202104182210342_AddedCustomerEventToDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.cs" />
-    <Compile Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.Designer.cs">
-      <DependentUpon>202104222236527_ChangedDataAnnotationForEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104270034216_AddedEventIdToCustomerTable.cs" />
-    <Compile Include="Migrations\202104270034216_AddedEventIdToCustomerTable.Designer.cs">
-      <DependentUpon>202104270034216_AddedEventIdToCustomerTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104270036306_Testing2.cs" />
-    <Compile Include="Migrations\202104270036306_Testing2.Designer.cs">
-      <DependentUpon>202104270036306_Testing2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104280011547_DeletedCustomerEventTable.cs" />
-    <Compile Include="Migrations\202104280011547_DeletedCustomerEventTable.Designer.cs">
-      <DependentUpon>202104280011547_DeletedCustomerEventTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105102243416_AddedTable.cs" />
-    <Compile Include="Migrations\202105102243416_AddedTable.Designer.cs">
-      <DependentUpon>202105102243416_AddedTable.cs</DependentUpon>
+    <Compile Include="Migrations\202105111849270_intionalMigration.cs" />
+    <Compile Include="Migrations\202105111849270_intionalMigration.Designer.cs">
+      <DependentUpon>202105111849270_intionalMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Sponsor.cs" />
@@ -118,41 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104140039515_InitialMigration.resx">
-      <DependentUpon>202104140039515_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104152318565_AddedCustomerEvent.resx">
-      <DependentUpon>202104152318565_AddedCustomerEvent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104172102007_AddedPriceToEvent.resx">
-      <DependentUpon>202104172102007_AddedPriceToEvent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104172332007_Testing.resx">
-      <DependentUpon>202104172332007_Testing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104180221350_Testing1.resx">
-      <DependentUpon>202104180221350_Testing1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104180241000_ChangedMiddleInitialToString.resx">
-      <DependentUpon>202104180241000_ChangedMiddleInitialToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104182210342_AddedCustomerEventToDb.resx">
-      <DependentUpon>202104182210342_AddedCustomerEventToDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104222236527_ChangedDataAnnotationForEvent.resx">
-      <DependentUpon>202104222236527_ChangedDataAnnotationForEvent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104270034216_AddedEventIdToCustomerTable.resx">
-      <DependentUpon>202104270034216_AddedEventIdToCustomerTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104270036306_Testing2.resx">
-      <DependentUpon>202104270036306_Testing2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104280011547_DeletedCustomerEventTable.resx">
-      <DependentUpon>202104280011547_DeletedCustomerEventTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105102243416_AddedTable.resx">
-      <DependentUpon>202105102243416_AddedTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105111849270_intionalMigration.resx">
+      <DependentUpon>202105111849270_intionalMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
